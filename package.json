@@ -1,0 +1,20 @@
+{
+  "name": "ssttek",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf allure-report/ && rimraf allure-results && rimraf test-results  && rimraf playwright-report",
+    "test": "playwright test --headed",
+    "test:reporter": "npm run clean && playwright test --reporter=allure-playwright,line,html",
+    "test:allure-report": "npm run test:reporter && npx allure generate allure-results && allure open"
+  },
+  "author": "Merve Acar",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.33.0",
+    "allure-playwright": "^2.2.1",
+    "playwright": "^1.33.0",
+    "rimraf": "^5.0.0"
+  }
+}
